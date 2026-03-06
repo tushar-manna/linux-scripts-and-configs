@@ -2,6 +2,7 @@
 set -e
 
 mode=$(supergfxctl --get || echo "unknown mode")
+session=$(echo $XDG_CURRENT_DESKTOP)
 
 
 if [ "$mode" = "Integrated" ]; then
@@ -19,5 +20,5 @@ else
   exit 1
 fi
 
-echo "All done! stopping compositor now"
-uwsm stop
+echo "All done! restarting compositor now"
+sudo systemctl restart display-manager
