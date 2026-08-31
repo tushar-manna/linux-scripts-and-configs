@@ -7,12 +7,10 @@ session=$(echo $XDG_CURRENT_DESKTOP)
 
 if [ "$mode" = "Integrated" ]; then
   echo "found state as $mode, switching to Hybrid"
-  powerprofilesctl set performance
   supergfxctl --mode Hybrid
 
 elif [ "$mode" = "Hybrid" ]; then
   echo "found state as $mode, switching to Integrated"
-  powerprofilesctl set power-saver
   supergfxctl --mode Integrated
 
 else
